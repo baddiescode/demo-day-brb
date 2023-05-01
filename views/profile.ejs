@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+<head>
+    <title>Be Right Back Trip Planner</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/eef6461833.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+  <div class="page-header text-center">
+    <h1><span class="fa fa-anchor"></span> Profile Page</h1>
+    <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+  </div>
+  </header>
+
+  <section class="middlePage">
+
+  <section class="hero_single version_2">
+    <div class="wrapper">
+      <div class="container">
+        <h3>Find unique experiences</h3>
+
+        <p>Plan local outings or travel getaways with ease using BRB to organize and map your itineraries.</p>
+
+        <% if (user.local.email) { %>
+
+        <form action="/messages" method="POST">
+          <div class="row g-0 custom-search-input-2">
+            <div class="col-lg-4">
+              <div class="form-group">
+
+                <!-- <input class="form-control" type="text" placeholder="Where to?" name="name">
+                <i class="icon_pin_alt"></i> -->
+
+                <select id="location" name="name">
+                  <option value="">--Select Location--</option>
+                  <option value="Philadelphia,PA">Philadelphia, PA</option>
+                  <option value="Miami,FL">Miami, FL</option>
+                  <option value="New York,NY">New York, NY</option>
+                  <option value="Houston,TX">Houston,TX</option>
+
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="form-group">
+                <input class="form-control" type="date" placeholder="When.." name="msg">
+                <i class="icon_calendar"></i>
+              </div>
+            </div>
+            <div class="col-lg-2">
+              <input type="submit" class="btn_search" value="Start Planning">
+            </div>
+          
+
+          </div>
+        </form>
+
+        <% } %>
+
+
+
+        <h3>Itinerary</h3>
+        <ul class="messages">
+        <% for(var i=0; i<messages.length; i++) {%>
+          <li class="message">
+            <span><%= messages[i].name %></span>
+            <span><%= messages[i].msg %></span>
+            <span><%= messages[i].star %></span>
+            <span><i class="fa-solid fa-star" aria-hidden="true"></i></span>
+            <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+          </li>
+        <% } %>
+        </ul>
+
+
+    
+      </div>
+    </div>
+  </section>
+
+  </section>
+
+
+
+
+
+
+
+<!-- <div class="container">
+
+    <div class="page-header text-center">
+        <h1><span class="fa fa-anchor"></span> Profile Page</h1>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    </div>
+
+    <div class="row"> -->
+
+        <!-- LOCAL INFORMATION -->
+        <!-- <div class="col-sm-6">
+            <div class="well">
+                <h3><span class="fa fa-user"></span> Local</h3>
+
+                <% if (user.local.email) { %>
+                    <p>
+                        <strong>id</strong>: <%= user._id %><br>
+                        <strong>email</strong>: <%= user.local.email %><br>
+                        <strong>password</strong>: <%= user.local.password %>
+                    </p>
+
+                    <a href="/unlink/local" class="btn btn-default">Unlink</a>
+                <% } else { %>
+                    <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                <% } %>
+
+            </div>
+        </div> -->
+
+
+        <!-- <div class="col-sm-6">
+          <h3>Messages</h3>
+          <ul class="messages">
+          <% for(var i=0; i<messages.length; i++) {%>
+            <li class="message">
+              <span><%= messages[i].name %></span>
+              <span><%= messages[i].msg %></span>
+              <span><%= messages[i].thumbUp %></span>
+              <span><i class="fa fa-thumbs-up" aria-hidden="true"></i></span>
+              <span><i class="fa fa-thumbs-down" aria-hidden="true"></i></span>
+              <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+            </li>
+          <% } %>
+          </ul>
+
+          <h2>Add a message</h2>
+        <% if (user.local.email) { %>
+          <form action="/messages" method="POST">
+            <input type="text" value="<%= user.local.email %>" name="name">
+            <input type="text" placeholder="message" name="msg">
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+        <% } %>
+
+</div> -->
+
+
+
+<script src="main.js"></script>
+
+</body>
+</html>
